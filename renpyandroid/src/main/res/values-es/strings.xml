@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MASL - An After Story launcher</string>
+    <string name="app_name">JYL - An After Story launcher</string>
 
     <!-- Setup Screen Strings -->
-    <string name="setup_title">Bienvenido a MASL - An After Story launcher</string>
-    <string name="setup_description">Para usar este launcher, necesitas proporcionar los archivos originales de Doki Doki Literature Club y los archivos del mod Monika After Story. Respetamos las IP Guidelines y no podemos distribuir estos archivos.</string>
+    <string name="setup_title">Bienvenido a JYL - An After Story launcher</string>
+    <string name="setup_description">Para usar este launcher, necesitas proporcionar los archivos originales de Doki Doki Literature Club y los archivos del mod Just Yuri. Respetamos las IP Guidelines y no podemos distribuir estos archivos.</string>
     <string name="setup_step_1_title">Paso 1: Doki Doki Literature Club</string>
     <string name="setup_step_1_desc">Descarga la versión oficial de DDLC para Windows.</string>
     <string name="setup_step_1_url">https://ddlc.moe/</string>
     <string name="setup_ddlc_sha256">SHA256: 2a3dd7969a06729a32ace0a6ece5f2327e29bdf460b8b39e6a8b0875e545632e</string>
-    <string name="setup_step_2_title">Paso 2: MASL - An After Story launcher</string>
+    <string name="setup_step_2_title">Paso 2: JYL - An After Story launcher</string>
     <string name="setup_step_2_desc">Descarga la versión 0.12.18 Dlx de MAS.</string>
     <string name="setup_step_2_url">https://github.com/Monika-After-Story/MonikaModDev/releases/tag/v0.12.18</string>
     <string name="setup_mas_filename">Objetivo: Monika_After_Story-0.12.18-Mod-Dlx.zip</string>
@@ -33,13 +33,13 @@
     <string name="setup_progress_verifying">Verificando archivos...</string>
     <string name="setup_progress_extracting_ddlc">Extrayendo DDLC...</string>
     <string name="setup_progress_extracting_rpa">Desempaquetando archivos del juego (RPA)...</string>
-    <string name="setup_progress_extracting_mas">Instalando Monika After Story...</string>
+    <string name="setup_progress_extracting_mas">Instalando Just Yuri...</string>
     <string name="setup_progress_finalizing">Finalizando instalación...</string>
     <string name="setup_complete">¡Instalación completada!</string>
     <string name="setup_error">Error: %1$s</string>
     <string name="setup_error_checksum">Verificación de checksum fallida para %1$s. Por favor descarga el archivo correcto.</string>
     <string name="setup_notifications_title">Activar notificaciones</string>
-    <string name="setup_notifications_description">Activa las notificaciones para que Monika pueda enviarte notificaciones cuando no estés en la app.</string>
+    <string name="setup_notifications_description">Activa las notificaciones para que Yuri pueda enviarte notificaciones cuando no estés en la app.</string>
     <string name="setup_notifications_allow">Permitir notificaciones</string>
     <string name="setup_notifications_skip">Omitir</string>
     <string name="setup_notifications_continue">Continuar</string>
@@ -177,9 +177,9 @@
     <string name="discord_rpc_login_failed">No se pudo obtener el token de Discord desde el inicio de sesión.</string>
     <string name="discord_rpc_saved_enabled">Discord RPC activado. Se iniciará al abrir el juego.</string>
     <string name="discord_rpc_saved_disabled">Discord RPC desactivado.</string>
-    <string name="discord_rpc_presence_name">Monika After Story Launcher</string>
+    <string name="discord_rpc_presence_name">Just Yuri Launcher</string>
     <string name="discord_rpc_presence_state">In the spaceroom</string>
-    <string name="discord_rpc_presence_details">Unofficial Monika After Story Android port</string>
+    <string name="discord_rpc_presence_details">Unofficial Just Yuri Android port</string>
     <string name="discord_rpc_button_play_store">Play Store</string>
     <string name="discord_rpc_button_github_repo">Github Repo</string>
 
@@ -324,14 +324,14 @@
     
     <string name="app_info_acknowledgments_title">Agradecimientos y Créditos</string>
     <string name="app_info_acknowledgments_team_salvato"><b>Team Salvato:</b> Por crear el increíble Doki Doki Literature Club!</string>
-    <string name="app_info_acknowledgments_mas_team"><b>Monika After Story Team:</b> Por el mod original y su continuo y arduo trabajo.</string>
+    <string name="app_info_acknowledgments_mas_team"><b>Just Yuri Team:</b> Por el mod original y su continuo y arduo trabajo.</string>
     <string name="app_info_acknowledgments_renpy"><b>Ren\'Py:</b> Por el motor de novela visual y RAPT.</string>
     <string name="app_info_acknowledgments_lattyware"><b>Lattyware:</b> Por la lógica de unrpa.</string>
 
     <string name="app_info_commit">Último commit: %1$s</string>
     <string name="app_info_version">Versión: %1$s</string>
     <string name="launcher_app_info_desc">Acerca de esta app</string>
-    <string name="documents_provider_root_title">MASL - An After Story launcher</string>
+    <string name="documents_provider_root_title">JYL - An After Story launcher</string>
     <string name="documents_provider_root_summary">MASL</string>
     <string name="documents_provider_open_failed">No se pudo abrir el explorador del sistema: %1$s</string>
     <string name="documents_provider_open_unavailable">No hay un explorador del sistema compatible disponible.</string>
