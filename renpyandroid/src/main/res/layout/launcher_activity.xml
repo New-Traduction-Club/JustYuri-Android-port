@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_desktop_mas">
+
+    <!-- Start Menu Panel (hidden by default) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/startMenuPanel"
+        android:layout_width="240dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_default="wrap"
+        app:layout_constraintHeight_max="@dimen/start_menu_collapsed_height"
+        app:layout_constrainedHeight="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        app:cardBackgroundColor="@color/colorWindowBackground"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="8dp"
+        android:visibility="visible"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/taskbarLayout"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/desktopRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingVertical="8dp"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Expanded Programs Panel (hidden by default, shown on "See more") -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/expandedProgramsPanel"
+        android:layout_width="240dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="0dp"
+        app:cardBackgroundColor="@color/colorWindowBackground"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="4dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/startMenuPanel"
+        app:layout_constraintBottom_toBottomOf="@+id/startMenuPanel"
+        app:layout_constraintStart_toEndOf="@+id/startMenuPanel">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/expandedRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingVertical="8dp"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Taskbar -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/taskbarLayout"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/colorTaskbarBackground"
+        android:elevation="12dp"
+        android:paddingStart="32dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/txtSystemClock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:textColor="@color/colorTaskbarTint"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Boot Sequence Overlay -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bootScreenLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:elevation="24dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/txtBiosConsole"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="24dp"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:typeface="monospace" 
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
