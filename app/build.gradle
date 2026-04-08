@@ -13,10 +13,10 @@ localProperties.load(new FileInputStream(localPropertiesFile))
 android {
     compileSdkVersion 35
 
-    namespace "com.z.mas.portby.just6889"
+    namespace "com.z.jy.portby.tdclub"
 
     defaultConfig {
-        applicationId "com.z.mas.portby.just6889"
+        applicationId "com.z.jy.portby.tdclub"
         minSdkVersion 21
         targetSdkVersion 35
         versionCode 1757713328
