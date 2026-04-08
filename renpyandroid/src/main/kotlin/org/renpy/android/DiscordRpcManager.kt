@@ -14,12 +14,12 @@ object DiscordRpcManager {
 
     private const val TAG = "DiscordRpcManager"
     private const val APP_ICON_URL =
-        "https://raw.githubusercontent.com/New-Traduction-Club/MonikaAfterStory-Android-port/c064f77/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+        "https://raw.githubusercontent.com/New-Traduction-Club/JustYuri-Android-portc064f77/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
     private const val DEFAULT_RPC_APPLICATION_ID = "962990036020756480"
     private const val PLAY_STORE_URL =
         "https://play.google.com/store/apps/details?id=com.z.mas.portby.just6889"
     private const val GITHUB_REPO_URL =
-        "https://github.com/New-Traduction-Club/MonikaAfterStory-Android-port"
+        "https://github.com/New-Traduction-Club/JustYuri-Android-port"
     const val PREF_DISCORD_RPC_ENABLED = "discord_rpc_enabled"
     const val PREF_DISCORD_RPC_TOKEN = "discord_rpc_token"
     const val PREF_DISCORD_RPC_WARNING_ACCEPTED = "discord_rpc_warning_accepted"
