@@ -604,7 +604,7 @@ class SetupActivity : BaseActivity() {
                     val entry = entries.nextElement()
                     val name = entry.name
                     
-                    if (name.startsWith("game/")) {
+                    if (name.startsWith("game/") || name.startsWith("characters/")) {
                         val targetFile = File(filesDir, name)
                         
                         if (entry.isDirectory) {
