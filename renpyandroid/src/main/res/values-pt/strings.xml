@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">JSL - An After Story launcher</string>
+    <string name="app_name">JYL - An Unofficial After Story launcher</string>
 
     <!-- Setup Screen Strings -->
-    <string name="setup_title">Bem-vindo ao JSL - An After Story launcher</string>
-    <string name="setup_description">Para usar este launcher, você precisa fornecer os arquivos originais do jogo Doki Doki Literature Club e os arquivos do mod Just Sayori. Respeitamos os IP Guidelines e não podemos distribuir esses arquivos.</string>
+    <string name="setup_title">Bem-vindo ao JYL - An Unofficial After Story launcher</string>
+    <string name="setup_description">Para usar este launcher, você precisa fornecer os arquivos originais do jogo Doki Doki Literature Club e os arquivos do mod Just Yuri. Respeitamos os IP Guidelines e não podemos distribuir esses arquivos.</string>
     <string name="setup_step_1_title">Passo 1: Doki Doki Literature Club</string>
     <string name="setup_step_1_desc">Baixe a versão oficial do DDLC para Windows.</string>
     <string name="setup_step_1_url">https://ddlc.moe/</string>
     <string name="setup_ddlc_sha256">SHA256: 2a3dd7969a06729a32ace0a6ece5f2327e29bdf460b8b39e6a8b0875e545632e</string>
-    <string name="setup_step_2_title">Passo 2: Just Sayori Mod</string>
-    <string name="setup_step_2_desc">Baixe a última versão do Mod Just Sayori.</string>
-    <string name="setup_step_2_url">https://github.com/New-Traduction-Club/justsayori-mod/releases</string>
+    <string name="setup_step_2_title">Passo 2: Just Yuri Mod</string>
+    <string name="setup_step_2_desc">Baixe a última versão do Mod Just Yuri.</string>
+    <string name="setup_step_2_url">https://github.com/New-Traduction-Club/JustYuri-Unofficial-Android-Support/releases</string>
     <string name="setup_mod_sha256">SHA256: %1$s</string>
     <string name="setup_btn_download">Baixar</string>
     <string name="setup_btn_download_manual">Baixar manualmente</string>
@@ -37,13 +37,13 @@
     <string name="setup_progress_verifying">Verificando arquivos...</string>
     <string name="setup_progress_extracting_ddlc">Extraindo DDLC...</string>
     <string name="setup_progress_extracting_rpa">Desempacotando arquivos do jogo (RPA)...</string>
-    <string name="setup_progress_extracting_mas">Instalando Just Sayori...</string>
+    <string name="setup_progress_extracting_mas">Instalando Just Yuri...</string>
     <string name="setup_progress_finalizing">Finalizando instalação...</string>
     <string name="setup_complete">Instalação concluída!</string>
     <string name="setup_error">Erro: %1$s</string>
     <string name="setup_error_checksum">Falha na verificação de checksum para %1$s. Por favor baixe o arquivo correto.</string>
     <string name="setup_notifications_title">Ativar notificações</string>
-    <string name="setup_notifications_description">Permita notificações para que a Sayori possa te avisar quando você estiver fora do app.</string>
+    <string name="setup_notifications_description">Permita notificações para que a Yuri possa te avisar quando você estiver fora do app.</string>
     <string name="setup_notifications_allow">Permitir notificações</string>
     <string name="setup_notifications_skip">Pular</string>
     <string name="setup_notifications_continue">Continuar</string>
@@ -187,9 +187,9 @@
     <string name="discord_rpc_login_failed">Não foi possível obter o token do Discord pelo login.</string>
     <string name="discord_rpc_saved_enabled">Discord RPC ativado. Ele iniciará ao abrir o jogo.</string>
     <string name="discord_rpc_saved_disabled">Discord RPC desativado.</string>
-    <string name="discord_rpc_presence_name">Just Sayori Launcher</string>
+    <string name="discord_rpc_presence_name">Just Yuri Launcher</string>
     <string name="discord_rpc_presence_state">In the spaceroom</string>
-    <string name="discord_rpc_presence_details">Official Just Sayori Android port</string>
+    <string name="discord_rpc_presence_details">Official Just Yuri Android port</string>
     <string name="discord_rpc_button_play_store">Play Store</string>
     <string name="discord_rpc_button_github_repo">Github Repo</string>
 
@@ -374,8 +374,8 @@
     <string name="app_info_commit">Último commit: %1$s</string>
     <string name="app_info_version">Versão: %1$s</string>
     <string name="launcher_app_info_desc">Sobre este app</string>
-    <string name="documents_provider_root_title">JSL - An After Story launcher</string>
-    <string name="documents_provider_root_summary">JSL</string>
+    <string name="documents_provider_root_title">JYL - An After Story launcher</string>
+    <string name="documents_provider_root_summary">JYL</string>
     <string name="documents_provider_open_failed">Não foi possível abrir o explorador do sistema: %1$s</string>
     <string name="documents_provider_open_unavailable">Nenhum explorador de arquivos do sistema compatível está disponível.</string>
     <string name="documents_provider_open_action">Abrir no explorador do sistema</string>

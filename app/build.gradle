@@ -19,8 +19,8 @@ android {
         applicationId "com.z.jy.portby.tdclub"
         minSdkVersion 21
         targetSdkVersion 35
-        versionCode 1757713328
-        versionName "2.0.5"
+        versionCode 1
+        versionName "0.0.1"
         ndk {
             abiFilters "armeabi-v7a", "arm64-v8a", "x86_64"
         }
