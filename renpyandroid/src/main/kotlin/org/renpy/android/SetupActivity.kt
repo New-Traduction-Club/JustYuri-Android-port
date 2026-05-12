@@ -74,7 +74,7 @@ class SetupActivity : BaseActivity() {
     private lateinit var tvCurrentLanguage: TextView
 
     private val CHECKSUM_DDLC = "2a3dd7969a06729a32ace0a6ece5f2327e29bdf460b8b39e6a8b0875e545632e"
-    private val PACKAGES_JSON_URL = "https://raw.githubusercontent.com/New-Traduction-Club/JustYuri-Unofficial-Android-Support/refs/heads/main/.utilityfiles/packages_list.json"
+    private val PACKAGES_JSON_URL = "https://raw.githubusercontent.com/New-Traduction-Club/JustYuri-Android-port/refs/heads/main/.utilityfiles/packages_list.json"
 
     companion object {
         private const val TAG = "SetupActivity"
