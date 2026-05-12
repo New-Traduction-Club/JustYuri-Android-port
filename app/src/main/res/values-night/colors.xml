@@ -1,34 +1,34 @@
 <resources>
-    <color name="colorPrimary">#9AC8FF</color>
-    <color name="colorOnPrimary">#101E3C</color>
-    <color name="colorPrimaryContainer">#273D5A</color>
-    <color name="colorOnPrimaryContainer">#D8E5FF</color>
+    <color name="colorPrimary">#BB86FC</color>
+    <color name="colorOnPrimary">#3700B3</color>
+    <color name="colorPrimaryContainer">#311B92</color>
+    <color name="colorOnPrimaryContainer">#E1BEE7</color>
 
-    <color name="colorSecondary">#A8C4E6</color>
-    <color name="colorOnSecondary">#0F152C</color>
-    <color name="colorSecondaryContainer">#1E283A</color>
-    <color name="colorOnSecondaryContainer">#D8E5FF</color>
+    <color name="colorSecondary">#B39DDB</color>
+    <color name="colorOnSecondary">#1A0033</color>
+    <color name="colorSecondaryContainer">#4A148C</color>
+    <color name="colorOnSecondaryContainer">#E1BEE7</color>
 
-    <color name="colorBackground">#101318</color>
-    <color name="colorOnBackground">#E8ECF3</color>
-    <color name="colorSurface">#16191F</color>
-    <color name="colorOnSurface">#E8ECF3</color>
-    <color name="colorSurfaceVariant">#1C212A</color>
-    <color name="colorOnSurfaceVariant">#E8ECF3</color>
-    <color name="colorOutline">#4E5B6B</color>
+    <color name="colorBackground">#120D16</color>
+    <color name="colorOnBackground">#F3E5F5</color>
+    <color name="colorSurface">#1A131B</color>
+    <color name="colorOnSurface">#F3E5F5</color>
+    <color name="colorSurfaceVariant">#2D2235</color>
+    <color name="colorOnSurfaceVariant">#F3E5F5</color>
+    <color name="colorOutline">#7B6B8D</color>
 
-    <color name="colorTaskbarBackground">#1C212A</color>
-    <color name="colorTaskbarTint">#B1CEFF</color>
-    <color name="colorTaskbarButtonPressed">#9AC8FF</color>
+    <color name="colorTaskbarBackground">#2D2235</color>
+    <color name="colorTaskbarTint">#D1B2FF</color>
+    <color name="colorTaskbarButtonPressed">#BB86FC</color>
 
-    <color name="colorWindowBackground">#16191F</color>
-    <color name="colorWindowHeaderBackground">#1B202D</color>
-    <color name="colorWindowContentBackground">#16191F</color>
-    <color name="colorWindowFooter">#273D5A</color>
+    <color name="colorWindowBackground">#1A131B</color>
+    <color name="colorWindowHeaderBackground">#2D2235</color>
+    <color name="colorWindowContentBackground">#1A131B</color>
+    <color name="colorWindowFooter">#311B92</color>
 
-    <color name="colorCardBackground">#1C212A</color>
-    <color name="colorDivider">#32384A</color>
-    <color name="colorTextPrimary">#E8ECF3</color>
-    <color name="colorTextSecondary">#B3BAC8</color>
-    <color name="colorIconTint">#B1CEFF</color>
+    <color name="colorCardBackground">#2D2235</color>
+    <color name="colorDivider">#3D3245</color>
+    <color name="colorTextPrimary">#F3E5F5</color>
+    <color name="colorTextSecondary">#B3A2B2</color>
+    <color name="colorIconTint">#D1B2FF</color>
 </resources>
