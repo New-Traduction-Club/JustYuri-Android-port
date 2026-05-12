@@ -5,6 +5,12 @@
       "download_url": "https://github.com/New-Traduction-Club/JustYuri-Unofficial-Android-Support/releases/download/testing-0.0.1/justyuri-beta-1.10.4-android-size.zip",
       "sha256": "b84ab6acedc16ca3b9c5a7cf999e67f7e98dedfc3a0f9f5aca6db022299e84c1",
       "min_app_version": 1
+    },
+    {
+      "version": "v1.10.4-Preview-0.0.2",
+      "download_url": "https://github.com/New-Traduction-Club/JustYuri-Unofficial-Android-Support/releases/download/testing-0.0.1/justyuri-beta-1.10.4-android-size-preview-0.0.2.zip",
+      "sha256": "64cacca7fb236062a724511a81cf3a9c170277bf7afeb009e30ae7a84ee2e2e5",
+      "min_app_version": 1
     }
   ]
 }
