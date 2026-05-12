@@ -1,9 +1,9 @@
 {
   "packages": [
     {
-      "version": "v1.2.0-Preview",
-      "download_url": "https://github.com/New-Traduction-Club/justsayori-mod/releases/download/V1.2.0-preview/JustSayori-1.2.0-preview-android.zip",
-      "sha256": "ba872bb1799c07539ce62b1f3151ab0debfb8ec24f2a66d91564756be2c4f871",
+      "version": "v1.1.4-Preview-0.0.1",
+      "download_url": "https://github.com/New-Traduction-Club/JustYuri-Unofficial-Android-Support/releases/download/testing-0.0.1/justyuri-beta-1.10.4-android-size.zip",
+      "sha256": "b84ab6acedc16ca3b9c5a7cf999e67f7e98dedfc3a0f9f5aca6db022299e84c1",
       "min_app_version": 1
     }
   ]
