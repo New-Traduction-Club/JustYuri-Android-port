@@ -69,7 +69,7 @@ class DownloadService : Service() {
         createNotificationChannel()
         val notification = NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
             .setContentTitle(getString(R.string.notification_download_title))
-            .setContentText(getString(R.string.setup_downloading_mas))
+            .setContentText(getString(R.string.setup_downloading_mod))
             .setSmallIcon(android.R.drawable.stat_sys_download)
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .setOngoing(true)

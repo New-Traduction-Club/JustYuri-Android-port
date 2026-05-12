@@ -7,8 +7,9 @@
     android:background="@android:color/transparent"
     android:orientation="vertical">
 
-    <!-- Header columns -->
+    <!-- Header columns / Breadcrumbs -->
     <LinearLayout
+        android:id="@+id/headerColumnsRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -24,8 +25,23 @@
             android:layout_marginEnd="8dp"
             android:src="@drawable/ic_arrow_back"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            app:tint="#B45D85"
+            app:tint="@color/colorPrimary"
             android:contentDescription="@string/file_nav_up"/>
+
+        <HorizontalScrollView
+            android:id="@+id/breadcrumbScroll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/breadcrumbContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical" />
+        </HorizontalScrollView>
 
         <ImageButton
             android:id="@+id/btnQuickAdd"
@@ -34,8 +50,18 @@
             android:layout_marginEnd="8dp"
             android:src="@android:drawable/ic_input_add"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            app:tint="#B45D85"
+            app:tint="@color/colorPrimary"
             android:contentDescription="@string/import_title"/>
+
+        <ImageButton
+            android:id="@+id/btnSearch"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_search"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            app:tint="@color/colorPrimary"
+            android:contentDescription="@string/file_explorer_search"/>
 
         <ImageButton
             android:id="@+id/btnSystemFiles"
@@ -44,54 +70,97 @@
             android:layout_marginEnd="8dp"
             android:src="@drawable/ic_folder"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            app:tint="#B45D85"
+            app:tint="@color/colorPrimary"
             android:contentDescription="@string/documents_provider_open_action"
             android:visibility="gone" />
-        
+    </LinearLayout>
+
+    <!-- Column Headers -->
+    <LinearLayout
+        android:id="@+id/columnHeadersRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="56dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="4dp"
+        android:gravity="center_vertical">
+
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1.5"
             android:layout_height="wrap_content"
             android:text="@string/file_col_name"
-            android:textColor="#B45D85"
-            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
             android:textSize="12sp"/>
-            
-        <View android:layout_width="1dp" android:layout_height="12dp" android:background="#CC7295" android:layout_marginHorizontal="4dp"/>
-            
+
+        <View android:layout_width="1dp" android:layout_height="12dp" android:background="@color/colorDivider" android:layout_marginHorizontal="4dp"/>
+
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/file_col_date"
-            android:textColor="#B45D85"
-            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
             android:textSize="12sp"/>
-            
-        <View android:layout_width="1dp" android:layout_height="12dp" android:background="#CC7295" android:layout_marginHorizontal="4dp"/>
+
+        <View android:layout_width="1dp" android:layout_height="12dp" android:background="@color/colorDivider" android:layout_marginHorizontal="4dp"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/file_col_type"
-            android:textColor="#B45D85"
-            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
             android:textSize="12sp"/>
-            
-        <View android:layout_width="1dp" android:layout_height="12dp" android:background="#CC7295" android:layout_marginHorizontal="4dp"/>
+
+        <View android:layout_width="1dp" android:layout_height="12dp" android:background="@color/colorDivider" android:layout_marginHorizontal="4dp"/>
 
         <TextView
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:text="@string/file_col_size"
             android:gravity="end"
-            android:textColor="#B45D85"
-            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
             android:textSize="12sp"/>
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/searchActionContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/etSearchQuery"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:hint="@string/file_explorer_search_hint"
+            android:singleLine="true"
+            android:imeOptions="actionSearch"
+            android:paddingHorizontal="12dp"
+            android:background="@android:color/transparent"
+            android:textColor="@color/colorOnSurface"
+            android:textColorHint="@color/colorTextSecondary" />
+
+        <ImageButton
+            android:id="@+id/btnSearchClose"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            app:tint="@color/colorIconTint"
+            android:contentDescription="@string/piano_close"/>
+    </LinearLayout>
     
-    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#CC7295" android:layout_marginBottom="4dp"/>
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/colorDivider" android:layout_marginBottom="4dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

@@ -87,7 +87,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     }
 
     private fun sendNotification(title: String, messageBody: String) {
-        val intent = Intent(this, DownloadCenterActivity::class.java).apply {
+        val intent = Intent(this, LauncherActivity::class.java).apply {
             addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         }
 
@@ -98,7 +98,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         val channelId = "updates_channel"
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.ic_launcher_download)
+            .setSmallIcon(R.drawable.ic_launcher_internal)
             .setContentTitle(title)
             .setContentText(messageBody)
             .setAutoCancel(true)

@@ -166,12 +166,11 @@ public class PythonSDLActivity extends SDLActivity {
      * This determines if unpacking one the zip files included in
      * the .apk is necessary. If it is, the zip file is unpacked.
      */
-    public void unpackData(final String resource, File target) {
+    public void unpackData(final String resource, File target, String data_version) {
 
         boolean shouldUnpack = false;
 
         // The version of data in memory and on disk.
-        String data_version = resourceManager.getString(resource + "_version");
         String disk_version = null;
 
         String filesDir = target.getAbsolutePath();
@@ -277,10 +276,14 @@ public class PythonSDLActivity extends SDLActivity {
         }
 
         long unpackStart = System.currentTimeMillis();
-        unpackData("private", getFilesDir());
+        String privateVersion = resourceManager.getString("private_version");
+        if (privateVersion != null) {
+            unpackData("private", getFilesDir(), privateVersion);
+        }
         Log.v("python", "unpackData finished. Duration: " + (System.currentTimeMillis() - unpackStart) + "ms");
 
         nativeSetEnv("ANDROID_PRIVATE", getFilesDir().getAbsolutePath());
+        nativeSetEnv("ANDROID_MASBASE", getFilesDir().getAbsolutePath());
         nativeSetEnv("ANDROID_PUBLIC",  externalStorage.getAbsolutePath());
         nativeSetEnv("ANDROID_OLD_PUBLIC", oldExternalStorage.getAbsolutePath());
 
@@ -308,7 +311,11 @@ public class PythonSDLActivity extends SDLActivity {
     Bitmap getBitmap(String assetName) {
         try {
             InputStream is = getAssets().open(assetName);
-            Bitmap rv = BitmapFactory.decodeStream(is);
+            
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            
+            Bitmap rv = BitmapFactory.decodeStream(is, null, options);
             is.close();
 
             return rv;
@@ -414,6 +421,12 @@ public class PythonSDLActivity extends SDLActivity {
         Log.v("python", "onStop() start.");
 
         super.onStop();
+
+        if (mIsInPictureInPictureMode) {
+            Log.v("python", "onStop() skipping wait, in PiP mode");
+            return;
+        }
+
         if (mPendingPictureInPictureEnter) {
             boolean inPictureInPicture = Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && isInPictureInPictureMode();
             if (!inPictureInPicture) {
@@ -579,6 +592,7 @@ public class PythonSDLActivity extends SDLActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             try {
                 mPendingPictureInPictureEnter = true;
+                mIsInPictureInPictureMode = true;
                 PictureInPictureParams.Builder builder = new PictureInPictureParams.Builder();
                 
                 Rational aspectRatio = new Rational(16, 9);
@@ -601,6 +615,7 @@ public class PythonSDLActivity extends SDLActivity {
                 enterPictureInPictureMode(builder.build());
             } catch (Exception e) {
                 mPendingPictureInPictureEnter = false;
+                mIsInPictureInPictureMode = false;
                 Log.e("PythonSDLActivity", "Enter PiP failed", e);
             }
         }
@@ -608,11 +623,23 @@ public class PythonSDLActivity extends SDLActivity {
 
     @Override
     public void onPictureInPictureModeChanged(boolean isInPictureInPictureMode, Configuration newConfig) {
+        Log.v("PythonSDLActivity", "onPictureInPictureModeChanged: " + isInPictureInPictureMode);
+
+        mIsInPictureInPictureMode = isInPictureInPictureMode;
+
         super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig);
         mPendingPictureInPictureEnter = false;
         if (isInPictureInPictureMode) {
             DiscordRpcManager.startIfEnabled(this);
         }
+
+        handleNativeState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        Log.v("PythonSDLActivity", "onConfigurationChanged");
+        super.onConfigurationChanged(newConfig);
     }
 
     @Override
@@ -634,6 +661,12 @@ public class PythonSDLActivity extends SDLActivity {
 
     @Override
     protected void onPause() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            if (isInPictureInPictureMode() || mPendingPictureInPictureEnter) {
+                mIsInPictureInPictureMode = true;
+            }
+        }
+
         super.onPause();
         boolean inPictureInPicture =
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && isInPictureInPictureMode();

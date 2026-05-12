@@ -99,6 +99,8 @@ public class SDLActivity extends Activity implements View.OnSystemUiVisibilityCh
     public static NativeState mNextNativeState;
     public static NativeState mCurrentNativeState;
 
+    protected static boolean mIsInPictureInPictureMode = false;
+
     /** If shared libraries (e.g. SDL or the native application) could not be loaded. */
     public static boolean mBrokenLibraries = true;
 
@@ -208,6 +210,7 @@ public class SDLActivity extends Activity implements View.OnSystemUiVisibilityCh
         mHasFocus = true;
         mNextNativeState = NativeState.INIT;
         mCurrentNativeState = NativeState.INIT;
+        mIsInPictureInPictureMode = false;
     }
 
     // Setup
@@ -345,6 +348,10 @@ public class SDLActivity extends Activity implements View.OnSystemUiVisibilityCh
             mHIDDeviceManager.setFrozen(true);
         }
         if (!mHasMultiWindow) {
+            if (mIsInPictureInPictureMode) {
+                Log.v(TAG, "onPause() skipping native pause, in PiP mode");
+                return;
+            }
             pauseNativeThread();
         }
     }
@@ -367,6 +374,10 @@ public class SDLActivity extends Activity implements View.OnSystemUiVisibilityCh
         Log.v(TAG, "onStop()");
         super.onStop();
         if (mHasMultiWindow) {
+            if (mIsInPictureInPictureMode) {
+                Log.v(TAG, "onStop() skipping native pause, in PiP mode");
+                return;
+            }
             pauseNativeThread();
         }
     }
@@ -419,10 +430,24 @@ public class SDLActivity extends Activity implements View.OnSystemUiVisibilityCh
            return;
         }
 
+        mHasFocus = hasFocus;
         if (hasFocus) {
            SDLActivity.getMotionListener().reclaimRelativeMouseModeIfNeeded();
-           nativeFocusChanged(true);
         }
+
+        boolean effectiveFocus = hasFocus;
+        if (!effectiveFocus) {
+            if (mIsInPictureInPictureMode) {
+                effectiveFocus = true;
+                Log.v(TAG, "In PiP mode, forcing effective focus to true for native engine");
+            } else if (Build.VERSION.SDK_INT >= 24 && isInMultiWindowMode()) {
+                effectiveFocus = true;
+                Log.v(TAG, "In Multi-Window mode, forcing effective focus to true for native engine");
+            }
+        }
+
+        nativeFocusChanged(effectiveFocus);
+        handleNativeState();
     }
 
     @Override
@@ -550,8 +575,13 @@ public class SDLActivity extends Activity implements View.OnSystemUiVisibilityCh
         return super.dispatchKeyEvent(event);
     }
 
-    /* Transition to next state */
     public static void handleNativeState() {
+        if (mSingleton != null) {
+            mSingleton.handleNativeStateBis();
+        }
+    }
+
+    protected void handleNativeStateBis() {
 
         if (mNextNativeState == mCurrentNativeState) {
             // Already in same state, discard.
@@ -579,7 +609,7 @@ public class SDLActivity extends Activity implements View.OnSystemUiVisibilityCh
 
         // Try a transition to resumed state
         if (mNextNativeState == NativeState.RESUMED) {
-            if (mSurface.mIsSurfaceReady && mHasFocus && mIsResumedCalled) {
+            if (mSurface.mIsSurfaceReady && (mHasFocus || mHasMultiWindow) && mIsResumedCalled) {
                 if (mSDLThread == null) {
                     // This is the entry point to the C app.
                     // Start up the C app thread and enable sensor input for the first time
@@ -1679,6 +1709,8 @@ class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
     // Keep track of the surface size to normalize touch events
     protected float mWidth, mHeight;
 
+    protected int mPrePipWidth, mPrePipHeight;
+
     // Is SurfaceView ready for rendering
     public boolean mIsSurfaceReady;
 
@@ -1734,6 +1766,11 @@ class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
     public void surfaceDestroyed(SurfaceHolder holder) {
         Log.v("SDL", "surfaceDestroyed()");
 
+        if (SDLActivity.mIsInPictureInPictureMode) {
+            Log.v("SDL", "surfaceDestroyed() skipped, in PiP mode");
+            return;
+        }
+
         // Transition to pause, if needed
         SDLActivity.mNextNativeState = SDLActivity.NativeState.PAUSED;
         SDLActivity.handleNativeState();
@@ -1752,6 +1789,31 @@ class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
             return;
         }
 
+        Log.v("SDL", "Window size: " + width + "x" + height);
+
+        if (SDLActivity.mIsInPictureInPictureMode) {
+            if (mPrePipWidth == 0) {
+                mPrePipWidth = (int) mWidth;
+                mPrePipHeight = (int) mHeight;
+                Log.v("SDL", "surfaceChanged() entering PiP, saved pre-PiP size: " + mPrePipWidth + "x" + mPrePipHeight);
+            }
+            if (width == mPrePipWidth && height == mPrePipHeight) {
+                Log.v("SDL", "surfaceChanged() buffer at pre-PiP size, nothing to do");
+                return;
+            }
+            Log.v("SDL", "surfaceChanged() in PiP, forcing buffer to " + mPrePipWidth + "x" + mPrePipHeight);
+            holder.setFixedSize(mPrePipWidth, mPrePipHeight);
+            return;
+        }
+
+        if (mPrePipWidth > 0) {
+            Log.v("SDL", "surfaceChanged() restoring dynamic surface sizing after PiP");
+            mPrePipWidth = 0;
+            mPrePipHeight = 0;
+            holder.setSizeFromLayout();
+            return;
+        }
+
         mWidth = width;
         mHeight = height;
         int nDeviceWidth = width;
@@ -1762,7 +1824,6 @@ class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
             SDLActivity.getContext().notifyAll();
         }
 
-        Log.v("SDL", "Window size: " + width + "x" + height);
         Log.v("SDL", "Device size: " + nDeviceWidth + "x" + nDeviceHeight);
         SDLActivity.nativeSetScreenResolution(width, height, nDeviceWidth, nDeviceHeight, mDisplay.getRefreshRate());
         SDLActivity.onNativeResize();
@@ -1815,8 +1876,13 @@ class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
         /* Surface is ready */
         mIsSurfaceReady = true;
 
-        SDLActivity.mNextNativeState = SDLActivity.NativeState.RESUMED;
-        SDLActivity.handleNativeState();
+        if (SDLActivity.mCurrentNativeState == SDLActivity.NativeState.RESUMED) {
+            Log.v("SDL", "Surface changed while already resumed, refreshing native context");
+            SDLActivity.nativeResume();
+        } else {
+            SDLActivity.mNextNativeState = SDLActivity.NativeState.RESUMED;
+            SDLActivity.handleNativeState();
+        }
     }
 
     // Key events

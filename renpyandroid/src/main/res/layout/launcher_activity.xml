@@ -10,8 +10,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/startMenuPanel"
         android:layout_width="240dp"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_default="wrap"
+        android:layout_height="wrap_content"
         app:layout_constraintHeight_max="@dimen/start_menu_collapsed_height"
         app:layout_constrainedHeight="true"
         android:layout_marginStart="32dp"
@@ -103,11 +102,32 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:padding="24dp"
-            android:textColor="#FFFFFF"
+            android:textColor="#00FF00"
             android:textSize="14sp"
             android:typeface="monospace" 
+            android:shadowColor="#00FF00"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="4"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:id="@+id/crtOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/crt_vignette"
+            android:alpha="0.8" />
+
+        <View
+            android:id="@+id/bootRollingLine"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/crt_rolling_line"
+            android:alpha="0.25"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

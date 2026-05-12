@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">JYL - An After Story launcher</string>
+    <string name="app_name">JSL - An After Story launcher</string>
 
     <!-- Setup Screen Strings -->
-    <string name="setup_title">Bienvenido a JYL - An After Story launcher</string>
-    <string name="setup_description">Para usar este launcher, necesitas proporcionar los archivos originales de Doki Doki Literature Club y los archivos del mod Just Yuri. Respetamos las IP Guidelines y no podemos distribuir estos archivos.</string>
+    <string name="setup_title">Bienvenido a JSL - An After Story launcher</string>
+    <string name="setup_description">Para usar este launcher, necesitas proporcionar los archivos originales de Doki Doki Literature Club y los archivos del mod Just Sayori. Respetamos las IP Guidelines y no podemos distribuir estos archivos.</string>
     <string name="setup_step_1_title">Paso 1: Doki Doki Literature Club</string>
     <string name="setup_step_1_desc">Descarga la versión oficial de DDLC para Windows.</string>
     <string name="setup_step_1_url">https://ddlc.moe/</string>
     <string name="setup_ddlc_sha256">SHA256: 2a3dd7969a06729a32ace0a6ece5f2327e29bdf460b8b39e6a8b0875e545632e</string>
-    <string name="setup_step_2_title">Paso 2: JYL - An After Story launcher</string>
-    <string name="setup_step_2_desc">Descarga la versión 0.12.18 Dlx de MAS.</string>
-    <string name="setup_step_2_url">https://github.com/Monika-After-Story/MonikaModDev/releases/tag/v0.12.18</string>
-    <string name="setup_mas_filename">Objetivo: Monika_After_Story-0.12.18-Mod-Dlx.zip</string>
-    <string name="setup_mas_sha256">SHA256: 1575791c114dcd2ed6a8868fe0f99abfa140d5d95045802a8de231026772c960</string>
+    <string name="setup_step_2_title">Paso 2: Just Sayori Mod</string>
+    <string name="setup_step_2_desc">Descarga la última versión del Mod Just Sayori.</string>
+    <string name="setup_step_2_url">https://github.com/New-Traduction-Club/justsayori-mod/releases</string>
+    <string name="setup_mod_sha256">SHA256: %1$s</string>
     <string name="setup_btn_download">Descargar</string>
     <string name="setup_btn_download_manual">Descargar manualmente</string>
     <string name="setup_btn_download_auto">Descargar automáticamente</string>
     <string name="setup_btn_select_file">Seleccionar Archivo</string>
     <string name="setup_confirm_delete_zip_title">¿Eliminar ZIP?</string>
     <string name="setup_confirm_delete_zip_message">¿Quieres eliminar el archivo ZIP después de la instalación para ahorrar espacio?</string>
-    <string name="setup_downloading_mas">Descargando MAS...</string>
+    <string name="setup_downloading_mod">Descargando mod...</string>
     <string name="setup_download_error">Error de descarga: %1$s</string>
+    <string name="setup_select_version_title">Seleccionar Versión</string>
+    <string name="setup_error_incompatible_version">Esta versión requiere una versión más reciente de la app (v%1$d). Por favor actualiza el launcher.</string>
+    <string name="setup_fetching_packages">Obteniendo versiones disponibles...</string>
+    <string name="setup_error_fetching_packages">No se pudieron obtener las versiones disponibles.</string>
     <string name="yes">Sí</string>
     <string name="no">No</string>
+    <string name="action_ok">Vale</string>
     <string name="setup_btn_continue">Instalar y Continuar</string>
     <string name="setup_file_selected">Seleccionado: %1$s</string>
     <string name="setup_error_missing_files">Por favor selecciona ambos archivos ZIP para continuar.</string>
@@ -33,13 +37,13 @@
     <string name="setup_progress_verifying">Verificando archivos...</string>
     <string name="setup_progress_extracting_ddlc">Extrayendo DDLC...</string>
     <string name="setup_progress_extracting_rpa">Desempaquetando archivos del juego (RPA)...</string>
-    <string name="setup_progress_extracting_mas">Instalando Just Yuri...</string>
+    <string name="setup_progress_extracting_mas">Instalando Just Sayori...</string>
     <string name="setup_progress_finalizing">Finalizando instalación...</string>
     <string name="setup_complete">¡Instalación completada!</string>
     <string name="setup_error">Error: %1$s</string>
     <string name="setup_error_checksum">Verificación de checksum fallida para %1$s. Por favor descarga el archivo correcto.</string>
     <string name="setup_notifications_title">Activar notificaciones</string>
-    <string name="setup_notifications_description">Activa las notificaciones para que Yuri pueda enviarte notificaciones cuando no estés en la app.</string>
+    <string name="setup_notifications_description">Activa las notificaciones para que Sayori pueda enviarte notificaciones cuando no estés en la app.</string>
     <string name="setup_notifications_allow">Permitir notificaciones</string>
     <string name="setup_notifications_skip">Omitir</string>
     <string name="setup_notifications_continue">Continuar</string>
@@ -116,6 +120,8 @@
 
     <!-- File Explorer Content Descriptions -->
     <string name="file_nav_up">Subir</string>
+    <string name="file_explorer_search">Buscar archivos</string>
+    <string name="file_explorer_search_hint">Buscar en esta carpeta...</string>
     <string name="file_menu">Menú</string>
 
     <!-- File Type Labels -->
@@ -146,6 +152,7 @@
     <string name="launcher_settings">Ajustes</string>
     <string name="launcher_discord_rpc">Discord RPC</string>
     <string name="launcher_backups">Copias de Seguridad</string>
+    <string name="launcher_add_extra_content">Añadir Contenido Extra</string>
     <string name="launcher_all_programs">Ver más</string>
 
     <!-- Launcher Button Subtitles -->
@@ -177,9 +184,9 @@
     <string name="discord_rpc_login_failed">No se pudo obtener el token de Discord desde el inicio de sesión.</string>
     <string name="discord_rpc_saved_enabled">Discord RPC activado. Se iniciará al abrir el juego.</string>
     <string name="discord_rpc_saved_disabled">Discord RPC desactivado.</string>
-    <string name="discord_rpc_presence_name">Just Yuri Launcher</string>
+    <string name="discord_rpc_presence_name">Just Sayori Launcher</string>
     <string name="discord_rpc_presence_state">In the spaceroom</string>
-    <string name="discord_rpc_presence_details">Unofficial Just Yuri Android port</string>
+    <string name="discord_rpc_presence_details">Official Just Sayori Android port</string>
     <string name="discord_rpc_button_play_store">Play Store</string>
     <string name="discord_rpc_button_github_repo">Github Repo</string>
 
@@ -260,7 +267,7 @@
     <!-- Notification Strings -->
     <string name="notification_channel_name">Descargas</string>
     <string name="notification_channel_description">Notificaciones para descargas de archivos</string>
-    <string name="notification_download_title">Descargando MAS</string>
+    <string name="notification_download_title">Descargando mod</string>
     <string name="notification_download_complete">Descarga Completada</string>
     <string name="notification_download_failed">Descarga Fallida</string>
     <string name="notification_download_progress">Velocidad: %1$s/s • Estimado: %2$s</string>
@@ -279,6 +286,39 @@
     <string name="extraction_completed">Extracción completada</string>
     <string name="extraction_error">Error de extracción: %1$s</string>
     <string name="launcher_download_center">Centro de Descargas</string>
+    <string name="extra_content_title">Contenido Extra</string>
+    <string name="extra_content_prompt">¿Qué deseas instalar?</string>
+    <string name="extra_content_option_install_sprites">Instalar Sprites</string>
+    <string name="extra_content_option_install_submods">Instalar Submods</string>
+    <string name="spritepack_installer_title">Instalar Sprites</string>
+    <string name="spritepack_installer_info">Selecciona el archivo comprimido (.zip o .rar) que descargaste. No te preocupes por extraer nada, MASL se encarga de acomodar todas las carpetas en su lugar automáticamente.</string>
+    <string name="spritepack_select_archive">Seleccionar Archivo</string>
+    <string name="spritepack_progress_analyzing">Analizando archivo...</string>
+    <string name="spritepack_progress_merging">Acomodando archivos...</string>
+    <string name="spritepack_success_title">¡Instalación Exitosa!</string>
+    <string name="spritepack_success_message">Los nuevos sprites se han añadido correctamente. Estarán disponibles la próxima vez que inicies el juego.</string>
+    <string name="spritepack_incompatible_title">Archivo no compatible</string>
+    <string name="spritepack_incompatible_message">Parece que este archivo no tiene la estructura de un spritepack válido o está dañado. Revisa que sea el archivo correcto.</string>
+    <string name="spritepack_retry">Volver a intentar</string>
+    <string name="spritepack_install_success_toast">Spritepack instalado correctamente.</string>
+    <string name="spritepack_unexpected_error">Falló la instalación: %1$s</string>
+    <string name="spritepack_gift_prompt_title">Archivos gift detectados</string>
+    <string name="spritepack_gift_prompt_message">Se detectaron archivos .gift. ¿Quieres colocarlos en la carpeta characters/?</string>
+    <string name="spritepack_gift_progress">Importando archivos .gift...</string>
+    <string name="spritepack_gift_import_success">Se movieron %1$d archivos .gift a characters/.</string>
+    <string name="spritepack_gift_import_error">Error al importar archivos .gift: %1$s</string>
+    <string name="submod_installer_title">Instalar Submods</string>
+    <string name="submod_installer_info">Selecciona el archivo comprimido (.zip o .rar) que descargaste. MASL validará y colocará automáticamente los archivos del submod en la ruta correcta.</string>
+    <string name="submod_select_archive">Seleccionar Archivo</string>
+    <string name="submod_progress_analyzing">Analizando archivo...</string>
+    <string name="submod_progress_merging">Acomodando archivos...</string>
+    <string name="submod_success_title">¡Instalación Exitosa!</string>
+    <string name="submod_success_message">Los archivos del submod se añadieron correctamente. Estarán disponibles la próxima vez que inicies el juego.</string>
+    <string name="submod_incompatible_title">Archivo no compatible</string>
+    <string name="submod_incompatible_message">Este archivo no parece ser un Submod válido. Si intentas instalar ropa o accesorios, utiliza el Instalador de Sprites.</string>
+    <string name="submod_retry">Volver a intentar</string>
+    <string name="submod_install_success_toast">Submod instalado correctamente.</string>
+    <string name="submod_unexpected_error">Falló la instalación: %1$s</string>
     
     <!-- Download Center Strings -->
     <string name="download_center_title">Centro de Descargas</string>
@@ -324,15 +364,15 @@
     
     <string name="app_info_acknowledgments_title">Agradecimientos y Créditos</string>
     <string name="app_info_acknowledgments_team_salvato"><b>Team Salvato:</b> Por crear el increíble Doki Doki Literature Club!</string>
-    <string name="app_info_acknowledgments_mas_team"><b>Just Yuri Team:</b> Por el mod original y su continuo y arduo trabajo.</string>
+    <string name="app_info_acknowledgments_mas_team"><b>Monika After Story Team:</b> Por el mod original y su continuo y arduo trabajo.</string>
     <string name="app_info_acknowledgments_renpy"><b>Ren\'Py:</b> Por el motor de novela visual y RAPT.</string>
     <string name="app_info_acknowledgments_lattyware"><b>Lattyware:</b> Por la lógica de unrpa.</string>
 
     <string name="app_info_commit">Último commit: %1$s</string>
     <string name="app_info_version">Versión: %1$s</string>
     <string name="launcher_app_info_desc">Acerca de esta app</string>
-    <string name="documents_provider_root_title">JYL - An After Story launcher</string>
-    <string name="documents_provider_root_summary">MASL</string>
+    <string name="documents_provider_root_title">JSL - An After Story launcher</string>
+    <string name="documents_provider_root_summary">JSL</string>
     <string name="documents_provider_open_failed">No se pudo abrir el explorador del sistema: %1$s</string>
     <string name="documents_provider_open_unavailable">No hay un explorador del sistema compatible disponible.</string>
     <string name="documents_provider_open_action">Abrir en explorador del sistema</string>
