@@ -37,6 +37,7 @@ class AppInfoActivity : GameWindowActivity() {
 
         setupHtmlText(binding.tvCreditsPort, getString(R.string.app_info_credits_port))
         setupHtmlText(binding.tvCreditsEs, getString(R.string.app_info_credits_es))
+        // TODO: edit PTBR credits
         setupHtmlText(binding.tvCreditsPt, getString(R.string.app_info_credits_pt))
         
         setupHtmlText(binding.tvAckTeamSalvato, getString(R.string.app_info_acknowledgments_team_salvato))
