@@ -15,7 +15,7 @@
     <string name="setup_mod_sha256">SHA256: %1$s</string>
     <string name="setup_btn_download">Descargar</string>
     <string name="setup_btn_download_manual">Descargar manualmente</string>
-    <string name="setup_btn_download_auto">Descargar automáticamente</string>
+    <string name="setup_btn_download_auto">Descargar desde GitHub</string>
     <string name="setup_btn_select_file">Seleccionar Archivo</string>
     <string name="setup_confirm_delete_zip_title">¿Eliminar ZIP?</string>
     <string name="setup_confirm_delete_zip_message">¿Quieres eliminar el archivo ZIP después de la instalación para ahorrar espacio?</string>

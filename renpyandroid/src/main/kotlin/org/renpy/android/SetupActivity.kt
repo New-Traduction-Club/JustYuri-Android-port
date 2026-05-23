@@ -103,8 +103,6 @@ class SetupActivity : BaseActivity() {
         val btnSelectDDLC = findViewById<Button>(R.id.btnSelectDDLC)
         tvSelectedDDLC = findViewById(R.id.tvSelectedDDLC)
 
-        val btnDownloadMAS = findViewById<Button>(R.id.btnDownloadMAS)
-        val btnSelectMAS = findViewById<Button>(R.id.btnSelectMAS)
         val btnAutoDownloadMAS = findViewById<Button>(R.id.btnAutoDownloadMAS)
         tvSelectedMAS = findViewById(R.id.tvSelectedMAS)
 
@@ -137,14 +135,6 @@ class SetupActivity : BaseActivity() {
         }
 
         // MAS
-        btnDownloadMAS.setOnClickListener {
-            openUrl(getString(R.string.setup_step_2_url))
-        }
-
-        btnSelectMAS.setOnClickListener {
-            selectFile(REQUEST_CODE_MAS)
-        }
-        
         btnAutoDownloadMAS.setOnClickListener {
             checkAndStartDownload()
         }
@@ -408,15 +398,11 @@ class SetupActivity : BaseActivity() {
         
         findViewById<View>(R.id.btnDownloadDDLC).isEnabled = enabled
         findViewById<View>(R.id.btnSelectDDLC).isEnabled = enabled
-        findViewById<View>(R.id.btnDownloadMAS).isEnabled = enabled
-        findViewById<View>(R.id.btnSelectMAS).isEnabled = enabled
         findViewById<View>(R.id.btnAutoDownloadMAS).isEnabled = enabled
         findViewById<View>(R.id.btnLanguage).isEnabled = enabled
         
         findViewById<View>(R.id.btnDownloadDDLC).alpha = alpha
         findViewById<View>(R.id.btnSelectDDLC).alpha = alpha
-        findViewById<View>(R.id.btnDownloadMAS).alpha = alpha
-        findViewById<View>(R.id.btnSelectMAS).alpha = alpha
         findViewById<View>(R.id.btnAutoDownloadMAS).alpha = alpha
         findViewById<View>(R.id.btnLanguage).alpha = alpha
     }
