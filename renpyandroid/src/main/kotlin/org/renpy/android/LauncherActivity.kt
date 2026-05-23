@@ -51,6 +51,8 @@ import android.graphics.drawable.BitmapDrawable
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -324,6 +326,7 @@ class LauncherActivity : BaseActivity() {
     private fun getExpandedItems(): List<DesktopShortcut> {
         return listOf(
             DesktopShortcut(R.string.launcher_browse_external, R.drawable.ic_launcher_external, "external_files"),
+            DesktopShortcut(R.string.launcher_update_game, R.drawable.ic_launcher_export, "update_game"),
             // TODO: maybe edit this to support JY submods
             // DesktopShortcut(R.string.launcher_add_extra_content, android.R.drawable.ic_input_add, "extra_content"),
             DesktopShortcut(R.string.launcher_discord_rpc, android.R.drawable.stat_notify_chat, "discord_rpc"),
@@ -640,6 +643,32 @@ class LauncherActivity : BaseActivity() {
             .show()
     }
 
+    private fun handleUpdateGame() {
+        lifecycleScope.launch {
+            val packages = withContext(Dispatchers.IO) {
+                GameUpdateManager.fetchPackages()
+            }
+
+            if (packages.isEmpty()) {
+                InAppNotifier.show(this@LauncherActivity, getString(R.string.update_error_fetch_failed))
+                return@launch
+            }
+
+            val versions = packages.map { it.version }.toTypedArray()
+            GameDialogBuilder(this@LauncherActivity)
+                .setTitle(getString(R.string.update_select_version_title))
+                .setItems(versions) { _, which ->
+                    val selected = packages[which]
+                    val intent = Intent(this@LauncherActivity, UpdateWindowActivity::class.java).apply {
+                        putExtra("package_info", selected)
+                    }
+                    startActivity(intent)
+                }
+                .setNegativeButton(getString(R.string.cancel), null)
+                .show()
+        }
+    }
+
     private fun handleShortcutExecution(shortcut: DesktopShortcut) {
         if (shortcut.actionId == "toggle_expand") {
             isStartMenuExpanded = !isStartMenuExpanded
@@ -654,6 +683,9 @@ class LauncherActivity : BaseActivity() {
         when (shortcut.actionId) {
             "start_game" -> {
                 viewModel.handlePlayClick()
+            }
+            "update_game" -> {
+                handleUpdateGame()
             }
             "import" -> {
                 GameDialogBuilder(this)

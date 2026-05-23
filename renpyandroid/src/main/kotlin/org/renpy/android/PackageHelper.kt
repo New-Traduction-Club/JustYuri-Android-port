@@ -1,14 +1,17 @@
 package org.renpy.android
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import org.json.JSONObject
 import java.net.URL
 
+@Parcelize
 data class PackageInfo(
     val version: String,
     val download_url: String,
     val sha256: String,
     val min_app_version: Int
-)
+) : Parcelable
 
 object PackageHelper {
     fun fetchPackages(url: String): List<PackageInfo> {

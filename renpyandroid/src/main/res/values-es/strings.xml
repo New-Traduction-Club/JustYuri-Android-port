@@ -80,6 +80,8 @@
     <string name="no_files_export">Ningún archivo seleccionado para exportar</string>
     <string name="import_failed">Importación fallida: %1$s</string>
     <string name="error_pasting">Error al pegar: %1$s</string>
+    <string name="rename_title">Renombrar</string>
+    <string name="rename_hint">Nuevo nombre</string>
     <string name="failed_to_create_folder">Fallo al crear carpeta.</string>
     <string name="delete_files">Eliminar archivos</string>
     <string name="confirm_delete_message">¿Estás seguro de que quieres eliminar los archivos seleccionados?</string>
@@ -145,6 +147,7 @@
 
     <!-- Launcher Strings -->
     <string name="launcher_start_game">Iniciar juego</string>
+    <string name="launcher_update_game">Actualizar juego</string>
     <string name="launcher_export_button">Exportar persistente</string>
     <string name="launcher_import_button">Importar persistente</string>
     <string name="launcher_browse_internal">Explorar archivos internos</string>
@@ -427,4 +430,24 @@
     <string name="window_mode_maximized_desc">Ventana a tamaño completo.</string>
     <string name="settings_window_mode_title">Modo de ventana</string>
     <string name="settings_window_mode_desc">Cambiar entre Ventana o Maximizado.</string>
+
+    <!-- Update Feature Strings -->
+    <string name="update_window_title">Gestor de Actualizaciones</string>
+    <string name="update_status_initializing">Iniciando actualización...</string>
+    <string name="update_status_downloading">Descargando actualización...</string>
+    <string name="update_status_verifying">Verificando actualización...</string>
+    <string name="update_status_installing">Instalando actualización...</string>
+    <string name="update_status_complete">¡Actualización completada!</string>
+    <string name="update_status_failed">Actualización fallida</string>
+    <string name="update_progress_percent">%1$d%%</string>
+    <string name="update_progress_error">Error</string>
+    <string name="update_desc_wait">Por favor, no cierres esta ventana hasta que la actualización haya terminado.</string>
+    <string name="update_desc_finished">El juego ha sido actualizado. Ya puedes cerrar esta ventana.</string>
+    <string name="update_error_no_package">Error: No se proporcionó información del paquete</string>
+    <string name="update_error_checksum">La verificación de la suma de comprobación falló. La descarga podría estar corrupta.</string>
+    <string name="update_error_file_not_found">Archivo de actualización no encontrado</string>
+    <string name="update_dialog_title">Actualización en curso</string>
+    <string name="update_dialog_warning">La actualización se está ejecutando. Cerrar esta ventana ahora podría corromper los archivos del juego. Por favor, espera a que termine.</string>
+    <string name="update_select_version_title">Seleccionar versión de actualización</string>
+    <string name="update_error_fetch_failed">No se pudieron obtener las actualizaciones disponibles.</string>
 </resources>

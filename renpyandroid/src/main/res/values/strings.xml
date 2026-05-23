@@ -155,6 +155,7 @@
 
     <!-- Launcher Strings -->
     <string name="launcher_start_game">Start game</string>
+    <string name="launcher_update_game">Update game</string>
     <string name="launcher_export_button">Export persistent</string>
     <string name="launcher_import_button">Import persistent</string>
     <string name="launcher_browse_internal">Browse internal files</string>
@@ -406,4 +407,32 @@
     <string name="window_mode_maximized_desc">Full-size window.</string>
     <string name="settings_window_mode_title">Window style</string>
     <string name="settings_window_mode_desc">Switch between windowed or maximized.</string>
+
+    <!-- Update Feature Strings -->
+    <string name="update_window_title">Game Update Manager</string>
+    <string name="update_status_initializing">Initializing Update...</string>
+    <string name="update_status_downloading">Downloading Update...</string>
+    <string name="update_status_verifying">Verifying Update...</string>
+    <string name="update_status_installing">Installing Update...</string>
+    <string name="update_status_complete">Update Complete!</string>
+    <string name="update_status_failed">Update Failed</string>
+    <string name="update_progress_percent">%1$d%%</string>
+    <string name="update_progress_error">Error</string>
+    <string name="update_desc_wait">Please do not close this window until the update is complete.</string>
+    <string name="update_desc_finished">The game has been updated. You can now close this window.</string>
+    <string name="update_error_no_package">Error: No package info provided</string>
+    <string name="update_error_checksum">Checksum verification failed. The download may be corrupted.</string>
+    <string name="update_error_file_not_found">Update file not found</string>
+    <string name="update_dialog_title">Update in Progress</string>
+    <string name="update_dialog_warning">The update is currently running. Closing this window now may corrupt your game files. Please wait until it finishes.</string>
+    <string name="update_select_version_title">Select Update Version</string>
+    <string name="update_error_fetch_failed">Could not fetch available updates.</string>
+    <string name="wifi_only_label">Download only with Wi-Fi</string>
+    <string name="update_current_version">Current: %1$s -> New: %2$s (%3$s)</string>
+    <string name="status_installing">Installing...</string>
+    <string name="status_downloading">Downloading...</string>
+    <string name="status_checking_updates">Searching updates...</string>
+    <string name="no_updates_found">No updates found</string>
+    <string name="launcher_download_center">Download Center</string>
+    <string name="installation_failed">Installation error: %1$s</string>
 </resources>
