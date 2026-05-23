@@ -52,7 +52,6 @@ class LauncherViewModel(application: Application) : AndroidViewModel(application
 
                 try {
                     copyDirectoryForExport(savesDir, tempExportDir)
-                    applyPersistentExportRules(tempExportDir)
                     zipDirectory(tempExportDir, zipFile)
                 } finally {
                     if (tempExportDir.exists()) {
@@ -104,28 +103,6 @@ class LauncherViewModel(application: Application) : AndroidViewModel(application
             val outputFile = File(tempDir, relPath)
             outputFile.parentFile?.mkdirs()
             file.copyTo(outputFile, overwrite = true)
-        }
-    }
-
-    private fun applyPersistentExportRules(tempDir: File) {
-        tempDir.walkTopDown().forEach { file ->
-            if (file.isFile && file.name == "persistent" && !file.delete()) {
-                throw IOException("Failed to delete ${file.absolutePath}")
-            }
-        }
-
-        tempDir.walkTopDown().forEach { file ->
-            if (!file.isFile || file.name != "persistent_699") {
-                return@forEach
-            }
-
-            val renamedFile = File(file.parentFile, "persistent")
-            if (renamedFile.exists() && !renamedFile.delete()) {
-                throw IOException("Failed to replace ${renamedFile.absolutePath}")
-            }
-            if (!file.renameTo(renamedFile)) {
-                throw IOException("Failed to rename ${file.absolutePath} to ${renamedFile.absolutePath}")
-            }
         }
     }
 
