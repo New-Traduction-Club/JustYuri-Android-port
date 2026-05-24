@@ -1,6 +1,12 @@
 {
   "packages": [
     {
+      "version": "V1.10.4-beta-0.0.4",
+      "download_url": "https://github.com/New-Traduction-Club/JustYuri-Unofficial-Android-Support/releases/download/V1.10.4-beta-0.0.4/justyuri-1.10.4-android-0.0.4.zip",
+      "sha256": "a398d897919054ae12b13513f0c87c923c284819b3d6b78ab713303badc6eb4b",
+      "min_app_version": 3
+    },
+    {
       "version": "STABLE-v1.10.4-Preview-0.0.3",
       "download_url": "https://github.com/New-Traduction-Club/JustYuri-Unofficial-Android-Support/releases/download/testing-0.0.1/justyuri-beta-1.10.4-android-size-preview-stable-0.0.3.zip",
       "sha256": "b1195fbcb6f9cb049845a23641f2b53d9951e63447c924c9aa001547dfdc5a2e",
