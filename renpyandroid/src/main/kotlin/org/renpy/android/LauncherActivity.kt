@@ -41,6 +41,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.lifecycle.lifecycleScope
 import android.app.ActivityManager
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.view.animation.LinearInterpolator
 import android.graphics.Bitmap
 import android.graphics.Color
@@ -164,6 +165,7 @@ class LauncherActivity : BaseActivity() {
         handleShortcutIntent(intent)
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun setupDesktopSelection() {
         binding.root.setOnTouchListener { _, event ->
             if (!bootSequenceCompleted) return@setOnTouchListener false
