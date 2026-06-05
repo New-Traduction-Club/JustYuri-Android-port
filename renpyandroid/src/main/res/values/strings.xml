@@ -344,7 +344,7 @@
     
     <string name="app_info_acknowledgments_title">Acknowledgments &amp; Credits</string>
     <string name="app_info_acknowledgments_team_salvato"><b>Team Salvato:</b> For creating the incredible Doki Doki Literature Club!</string>
-    <string name="app_info_acknowledgments_mas_team"><b>Monika After Story Team:</b> For the original mod and their continuous hard work.</string>
+    <string name="app_info_acknowledgments_mas_team"><b>Just Yuri Team:</b> For the original mod and their continuous hard work.</string>
     <string name="app_info_acknowledgments_renpy"><b>Ren\'Py:</b> For the visual novel engine and the RAPT framework.</string>
     <string name="app_info_acknowledgments_lattyware"><b>Lattyware:</b> For the foundational unrpa logic.</string>
 
