@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_desktop_mas">
 
+    <org.renpy.android.DesktopSelectionView
+        android:id="@+id/desktopSelectionView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <!-- Start Menu Panel (hidden by default) -->
     <androidx.cardview.widget.CardView
         android:id="@+id/startMenuPanel"

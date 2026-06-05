@@ -48,6 +48,8 @@ import android.graphics.Shader
 import android.graphics.drawable.BitmapDrawable
 
 
+import android.graphics.RectF
+import android.view.MotionEvent
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.Job
@@ -110,6 +112,9 @@ class LauncherActivity : BaseActivity() {
     private var pendingExportUri: Uri? = null
     private var wallpaperRotationJob: Job? = null
 
+    private var selectionStartX = 0f
+    private var selectionStartY = 0f
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -148,6 +153,7 @@ class LauncherActivity : BaseActivity() {
         initializeDesktopGrid()
         startSystemClockWorker()
         setupDynamicShortcuts(prefs.getBoolean("is_setup_completed", false))
+        setupDesktopSelection()
         
         startBootCrtAnimations()
         
@@ -157,6 +163,37 @@ class LauncherActivity : BaseActivity() {
         
         handleShortcutIntent(intent)
     }
+
+    private fun setupDesktopSelection() {
+        binding.root.setOnTouchListener { _, event ->
+            if (!bootSequenceCompleted) return@setOnTouchListener false
+
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    selectionStartX = event.x
+                    selectionStartY = event.y
+                    binding.desktopSelectionView.updateSelection(null)
+                    true
+                }
+                MotionEvent.ACTION_MOVE -> {
+                    val rect = RectF(
+                        Math.min(selectionStartX, event.x),
+                        Math.min(selectionStartY, event.y),
+                        Math.max(selectionStartX, event.x),
+                        Math.max(selectionStartY, event.y)
+                    )
+                    binding.desktopSelectionView.updateSelection(rect)
+                    true
+                }
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                    binding.desktopSelectionView.updateSelection(null)
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
@@ -219,6 +256,7 @@ class LauncherActivity : BaseActivity() {
         super.onNewIntent(intent)
         handleShortcutIntent(intent)
     }
+
     
     private var returnFromWindow = false
 
