@@ -329,7 +329,7 @@ class LauncherActivity : BaseActivity() {
             DesktopShortcut(R.string.launcher_update_game, R.drawable.ic_launcher_export, "update_game"),
             // TODO: maybe edit this to support JY submods
             // DesktopShortcut(R.string.launcher_add_extra_content, android.R.drawable.ic_input_add, "extra_content"),
-            DesktopShortcut(R.string.launcher_discord_rpc, android.R.drawable.stat_notify_chat, "discord_rpc"),
+            // DesktopShortcut(R.string.launcher_discord_rpc, android.R.drawable.stat_notify_chat, "discord_rpc"),
             DesktopShortcut(R.string.launcher_backups, R.drawable.ic_launcher_backup, "backups"),
             DesktopShortcut(R.string.launcher_wallpapers, R.drawable.ic_launcher_wallpaper, "wallpapers"),
             DesktopShortcut(R.string.title_app_info, android.R.drawable.ic_menu_info_details, "app_info")
